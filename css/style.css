@@ -232,8 +232,13 @@ header{
   height: 912px;
   overflow: hidden;
 }
-.slider__content {
+.slider__content_one {
   width: 50%;
+}
+
+.slider {
+  display: flex;
+  position: relative;
 }
 
 .swiper {
@@ -269,6 +274,10 @@ header{
   right: 30px;
 }
 
+.slider__content {
+  flex: 1 1 50%;
+}
+
 .slider__arrows button {
   width: 44px;
   height: 44px;
@@ -279,7 +288,7 @@ header{
 }
 
 .slider img{
-  width: 100px;
+  width: 100%;
   height: 100%;
 }
 section:nth-child(5){
