@@ -538,14 +538,14 @@ footer{
 }
 
 #about {
-  position: relative;
-  padding-top: 200px;
+  /* position: relative;
+  padding-top: 200px; */
 }
 
 #about .slider__content {
-    position: absolute;
+    /* position: absolute;
     width: 100px;
     height: auto;
     top: 0;
-    left: 0;
+    left: 0; */
 }
