@@ -11,10 +11,10 @@
     <img src="./img/logo.png" alt="" class="logo">
     <nav>
       <ul class="menu">
-        <li class="menu--item"><a href="#header">ГЛАВНАЯ</a></li>
+        <li class="menu--item"><a href="#header" class="toTop">ГЛАВНАЯ</a></li>
         <li class="menu--item"><a href="#service">УСЛУГИ</a></li>
         <li class="menu--item"><a href="#project">НАШИ&nbsp;ПРОЕКТЫ</a></li>
-        <li class="menu--item"><a href="#partner">СОТРУДНИЧЕСТВО</a></li>
+        <li class="menu--item"><a href="#cooperation">СОТРУДНИЧЕСТВО</a></li>
         <li class="menu--item"><a href="#contact">КОНТАКТЫ</a></li>
       </ul>
     </nav>
@@ -120,7 +120,6 @@
         <h1 class="title">О нас</h1>
         <hr>
         <p class="text">Наша команда — это профессиональное объединение архитекторов, дизайнеров, специалистов комплектации и строителей. Мы занимаемся разработкой и реализацией проектов интерьеров разного уровня сложности во всех стилистических направлениях.</p>
-   
       </div>
     </div>
   </section>
@@ -139,7 +138,7 @@
 
   <section class="message">
     <img src="./img/back5.png" alt="">
-    <div class="message__content">
+    <div class="message__content" id="cooperation">
       <h1 class="message__title">Оставте свое сообщение и мы свяжемся с вами</h1>
       <form action="#" class="message__area">
         <input type="text" placeholder="Ваше Имя">
@@ -181,6 +180,58 @@
         prevEl: ".arrow-left",
       },
     });
+
+    let toTop = document.querySelector('.toTop');
+    toTop.onclick = e => {
+      e.preventDefault();
+      window.scrollTo(0, 0);
+    }
+
+    let formData = {
+      text: document.querySelector('.message__area input[type="text"]'),
+      email: document.querySelector('.message__area input[type="email"]'),
+      textarea: document.querySelector('.message__area textarea'),
+    };
+
+    let formSubmit = document.querySelector('.message__area button');
+
+    function validateEmail(email) {
+        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return re.test(String(email).toLowerCase());
+    }
+
+    formSubmit.onclick = e => {
+      let t = true;
+      
+      if (formData.text.value.length < 4) {
+        t = false
+        formData.text.classList.add('error')
+      } else {
+        formData.text.classList.remove('error')
+      }
+      
+      if (formData.textarea.value.length < 4) {
+        t = false
+        formData.textarea.classList.add('error')
+      } else {
+        formData.textarea.classList.remove('error')
+      }
+      
+      console.log(validateEmail(formData.email.value));
+      
+      if (!validateEmail(formData.email.value)) {
+        t = false;
+        formData.email.classList.add('error');
+      } else {
+        formData.email.classList.remove('error')
+      }
+
+      if (!t) {
+        e.preventDefault();
+      }
+
+
+    }
   </script>
 </body>
 </html>

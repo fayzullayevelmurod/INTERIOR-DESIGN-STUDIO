@@ -439,6 +439,11 @@ section:nth-child(7) .btn-read:hover{
   margin-top: 10px;
   margin-bottom: 54px;
 }
+
+.message__area .error {
+  border-color: red;
+} 
+
 footer{
   background: #3e3e3e;
   padding: 235px 100px 100px 100px;
@@ -530,4 +535,17 @@ footer{
 /* Small phones */
 @media (max-width: 320px) {
   
-} 
+}
+
+#about {
+  position: relative;
+  padding-top: 200px;
+}
+
+#about .slider__content {
+    position: absolute;
+    width: 100px;
+    height: auto;
+    top: 0;
+    left: 0;
+}
